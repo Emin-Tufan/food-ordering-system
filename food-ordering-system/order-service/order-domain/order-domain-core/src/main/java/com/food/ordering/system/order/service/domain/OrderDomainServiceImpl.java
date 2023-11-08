@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 public class OrderDomainServiceImpl implements OrderDomainService {
@@ -54,16 +54,20 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     private void validateRestaurant(Restaurant restaurant) {
         if (!restaurant.isActive())
-            throw new OrderDomainException("Restaurant with id: " + restaurant.getId().getValue() +
-                    "is currently not active!");
+            throw new OrderDomainException("Restaurant with id: " + restaurant.getId().getValue() + "is currently not active!");
     }
 
     private void setOrderProductInformation(Order order, Restaurant restaurant) {
+        HashMap<Product, Product> map = new HashMap<>();
+        Iterator<Product> iterator = restaurant.getProducts().iterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            map.put(product, product);
+        }
         order.getItems().forEach(orderItem -> {
-            Product curProduct = orderItem.getProduct();
-            Product restaurantProduct = restaurant.getProducts().get(curProduct);
-            if (restaurantProduct != null) {
-                curProduct.updateWithConfirmedNameAndPrice(restaurantProduct.getName(), restaurantProduct.getPrice());
+            Product curProduct = map.get(orderItem.getProduct());
+            if (curProduct != null) {
+                orderItem.getProduct().updateWithConfirmedNameAndPrice(curProduct.getName(), curProduct.getPrice());
             }
         });
     }
