@@ -1,6 +1,5 @@
 package com.food.ordering.system.order.service.domain.dto.create;
 
-import com.food.ordering.system.order.service.domain.entity.OrderItem;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,5 +23,5 @@ public class CreateOrderCommand {
     @NotNull
     private final List<OrderItem> items;
     @NotNull
-    private final OrderAddress adress;
+    private final OrderAddress address;
 }
