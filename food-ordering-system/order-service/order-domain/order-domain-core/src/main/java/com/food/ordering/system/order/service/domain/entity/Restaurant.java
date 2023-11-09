@@ -3,7 +3,6 @@ package com.food.ordering.system.order.service.domain.entity;
 import com.food.ordering.system.domain.entity.AggregateRoot;
 import com.food.ordering.system.domain.valuobject.RestaurantId;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class Restaurant extends AggregateRoot<RestaurantId> {

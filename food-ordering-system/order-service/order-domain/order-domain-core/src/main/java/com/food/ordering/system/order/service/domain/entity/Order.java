@@ -169,10 +169,6 @@ public class Order extends AggregateRoot<OrderId> {
         private Builder() {
         }
 
-        public static Builder newBuilder() {
-            return new Builder();
-        }
-
         public Builder id(OrderId val) {
             orderId = val;
             return this;
