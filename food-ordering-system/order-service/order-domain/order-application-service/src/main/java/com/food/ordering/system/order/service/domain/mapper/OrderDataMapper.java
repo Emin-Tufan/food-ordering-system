@@ -10,7 +10,6 @@ import com.food.ordering.system.order.service.domain.entity.OrderItem;
 import com.food.ordering.system.order.service.domain.entity.Product;
 import com.food.ordering.system.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
-import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -38,10 +37,11 @@ public class OrderDataMapper {
                 .build();
     }
 
-    public CreateOrderResponse orderToCreateOrderResponse(Order order) {
+    public CreateOrderResponse orderToCreateOrderResponse(Order order,String message) {
         return CreateOrderResponse.builder()
                 .orderTrackingId(order.getTrackingId().getValue())
                 .orderStatus(order.getOrderStatus())
+                .message(message)
                 .build();
     }
 
