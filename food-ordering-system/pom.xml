@@ -10,6 +10,8 @@
     <modules>
         <module>order-service</module>
         <module>common</module>
+        <module>infrastructure</module>
+        <module>infrastructure/kafka</module>
     </modules>
 
     <parent>
@@ -24,6 +26,9 @@
     <properties>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <mockito.version>5.7.0</mockito.version>
+        <spring-kafka.version>3.0.12</spring-kafka.version>
+        <kafka-avro-serializer.version>7.5.1</kafka-avro-serializer.version>
+        <avro.verison>1.11.3</avro.verison>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -72,6 +77,30 @@
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-config-data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-consumer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-producer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-model</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
 
