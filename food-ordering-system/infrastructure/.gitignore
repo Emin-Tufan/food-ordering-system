@@ -21,6 +21,11 @@ target/
 .springBeans
 .sts4-cache
 
+docker-compose/zookeeper/data/
+docker-compose/zookeeper/transactions/
+docker-compose/kafka/broker-1/
+docker-compose/kafka/broker-2/
+docker-compose/kafka/broker-3/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
