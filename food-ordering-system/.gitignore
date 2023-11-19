@@ -11,7 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
-
+food-ordering-system/.idea/
+.idea/sonarlint
 ### Eclipse ###
 .apt_generated
 .classpath
